@@ -1,7 +1,7 @@
-import _root_.org.mortbay.jetty.Connector
-import _root_.org.mortbay.jetty.Server
-import _root_.org.mortbay.jetty.webapp.WebAppContext
-import org.mortbay.jetty.nio._
+import _root_.org.eclipse.jetty.server.Connector
+import _root_.org.eclipse.jetty.server.Server
+import _root_.org.eclipse.jetty.webapp.WebAppContext
+import org.eclipse.jetty.server.nio._
 
 object RunWebApp extends Application {
   val server = new Server
@@ -14,7 +14,7 @@ object RunWebApp extends Application {
   context.setContextPath("/")
   context.setWar("src/main/webapp")
 
-  server.addHandler(context)
+  server.setHandler(context)
 
   try {
     println(">>> STARTING EMBEDDED JETTY SERVER, PRESS ANY KEY TO STOP")
